@@ -1,0 +1,59 @@
+/*Design a class ‘Complex ‘with data members for real and imaginary part. Provide default and
+Parameterized constructors. Write a program to perform arithmetic operations of two complex
+numbers.*/
+import java.util.*;
+
+class Complex {
+    double real;
+    double img;
+
+    // Constructors
+    Complex() {
+        real = 0;
+        img = 0;
+    }
+
+    Complex(double r, double i) {
+        this.real = r;
+        this.img = i;
+    }
+
+    // Method to add two complex numbers
+    public static Complex add(Complex com1, Complex com2) {
+        Complex addOut = new Complex();
+        addOut.real = com1.real + com2.real;
+        addOut.img = com1.img + com2.img;
+        return addOut;
+    }
+
+public static Complex sub(Complex com1, Complex com2) {
+        Complex subout = new Complex();
+        subout.real = com1.real - com2.real;
+        subout.img = com1.img - com2.img;
+        return subout;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the real part 1:");
+        double a = sc.nextDouble();
+        System.out.println("Enter the imaginary part 1:");
+        double b = sc.nextDouble();
+        System.out.println("Enter the real part 2:");
+        double c = sc.nextDouble();
+        System.out.println("Enter the imaginary part 2:");
+        double d = sc.nextDouble();
+
+        Complex com1 = new Complex(a, b);
+        Complex com2 = new Complex(c, d);
+
+        System.out.println("This is complex no1: " + com1.real + "+" + com1.img + "i");
+        System.out.println("This is complex no2: " + com2.real + "+" + com2.img + "i");
+
+        Complex addOut=add(com1, com2);
+        System.out.println("Addition is: " + addOut.real + "+" + addOut.img + "i");
+        Complex subout=sub(com1, com2);
+        System.out.println("subtraction is: " + subout.real + "+" + subout.img + "i");
+    }
+}
